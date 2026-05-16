@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *)",
+      "Bash(mvn compile *)",
+      "Bash(mvn test *)",
+      "Bash(mvn clean *)",
+      "Bash(java -version)",
+      "Bash(mvn -version)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json\" -d '{\"message\":\"/帮助\"}')",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json\" -d \"{\\\\\"message\\\\\":\\\\\"/help\\\\\"}\")",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json; charset=UTF-8\" -d '{\"message\":\"今天上午修了登录页的bug\"}')",
+      "Bash(curl -s http://localhost:8080/api/reminders)",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json\" -d @-)",
+      "Bash(echo '{\"message\":\"/查看 今天\"}')",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json; charset=UTF-8\" --data-binary @/tmp/test_cmd.json)",
+      "Bash(rm /tmp/test_cmd.json)",
+      "Bash(echo '{\"message\":\"/本周周报\"}')",
+      "Bash(curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json; charset=UTF-8\" --data-binary @/tmp/cmd.json)",
+      "Bash(echo '{\"message\":\"/修改 1 fixed login timeout bug - root cause identified\"}' > /tmp/cmd.json && curl -s -X POST http://localhost:8080/api/chat -H \"Content-Type: application/json; charset=UTF-8\" --data-binary @/tmp/cmd.json 2>&1)",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(pkill -f \"spring-boot-maven-plugin\")",
+      "Bash(pkill -f \"weekly-report-assistant\")",
+      "Bash(pkill -f \"WeeklyReportApplication\")",
+      "Bash(pkill -f \"spring-boot\")"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

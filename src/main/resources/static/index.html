@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 周报助手</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-back">←</div>
+            <div class="header-title">AI 周报助手</div>
+            <div class="header-more" id="headerMore" onclick="toggleSettings()">⋯</div>
+        </header>
+
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-title">设置</div>
+            <div class="settings-item">
+                <label for="apiKeyInput">DeepSeek API Key</label>
+                <input type="password" id="apiKeyInput" placeholder="sk-..." autocomplete="off">
+                <span class="settings-hint" id="apiKeyHint"></span>
+            </div>
+            <div class="settings-item">
+                <label for="dbPathInput">数据库文件路径</label>
+                <input type="text" id="dbPathInput" placeholder="weekly_report.db">
+                <span class="settings-hint">修改后需重启应用生效</span>
+            </div>
+            <div class="settings-actions">
+                <button class="settings-btn cancel-btn" onclick="toggleSettings()">取消</button>
+                <button class="settings-btn save-btn" onclick="saveSettings()">保存</button>
+            </div>
+        </div>
+
+        <div class="chat-area" id="chatArea">
+            <div class="message bot">
+                <div class="avatar bot-avatar">🤖</div>
+                <div class="bubble welcome-bubble">
+                    <div class="welcome-greeting">你好！我是周报助手 👋</div>
+                    <div class="welcome-desc">直接告诉我今天做了什么，我会帮你记录下来。</div>
+                    <div class="welcome-features">
+                        <div class="welcome-feature">📝 日常记录 — 像聊天一样记录工作</div>
+                        <div class="welcome-feature">🤖 AI 分类 — 自动归类工作类型</div>
+                        <div class="welcome-feature">📊 一键周报 — 周末自动生成润色好的周报</div>
+                    </div>
+                    <div class="welcome-hint">输入 <span class="cmd-pill">/帮助</span> 查看所有功能</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-row">
+                <input type="text" id="messageInput" placeholder="输入工作内容或命令..."
+                       autocomplete="off" autofocus>
+                <button id="sendBtn">发送</button>
+            </div>
+            <div class="quick-actions">
+                <button class="quick-btn" data-cmd="/查看 今天">📅 今天</button>
+                <button class="quick-btn" data-cmd="/查看 本周">📋 本周</button>
+                <button class="quick-btn" data-cmd="/本周周报">📝 周报</button>
+                <button class="quick-btn" data-cmd="/帮助">❓ 帮助</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

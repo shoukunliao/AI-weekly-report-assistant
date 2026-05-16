@@ -1,0 +1,19 @@
+# Build output
+target/
+
+# IDE
+.idea/
+*.iml
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+weekly_report.db
+
+# Environment
+.env
+.env.local
