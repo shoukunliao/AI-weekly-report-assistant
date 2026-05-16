@@ -2,6 +2,15 @@
 
 像聊天一样记录日常工作，由 AI 自动分类并生成结构化周报的个人生产力工具。
 
+## 项目结构
+
+```
+├── web/                # Spring Boot Web 应用（当前）
+├── app/                # 移动端 / 桌面端（规划中）
+├── CLAUDE.md           # Claude Code 配置
+└── SPEC.md             # 产品规格说明
+```
+
 ## 技术栈
 
 | 技术 | 版本 | 用途 |
@@ -19,7 +28,7 @@
 ## 项目架构
 
 ```
-src/main/java/com/weeklyreport/
+web/src/main/java/com/weeklyreport/
 ├── controller/
 │   ├── ChatController.java        # /api/chat、/api/reminders
 │   └── SettingsController.java    # /api/settings
@@ -61,7 +70,10 @@ src/main/java/com/weeklyreport/
 ### 运行
 
 ```bash
-# 克隆项目后，设置 DeepSeek API Key（可选，不设置则 AI 功能不可用）
+# 进入 Web 项目目录
+cd web
+
+# 设置 DeepSeek API Key（可选，不设置则 AI 功能不可用）
 set DEEPSEEK_API_KEY=sk-your-key-here       # Windows
 export DEEPSEEK_API_KEY=sk-your-key-here    # Linux/Mac
 
@@ -74,11 +86,12 @@ mvn spring-boot:run
 ### 打包部署
 
 ```bash
+cd web
 mvn clean package -DskipTests
 java -jar target/ai-weekly-report-assistant-1.0.0.jar
 ```
 
-数据库文件默认在启动目录生成，可通过界面设置自定义路径。
+数据库文件默认在 `web/` 启动目录生成，可通过界面设置自定义路径。
 
 ## 功能说明
 
@@ -131,7 +144,7 @@ java -jar target/ai-weekly-report-assistant-1.0.0.jar
 ## 配置参考
 
 ```yaml
-# application.yml
+# web/src/main/resources/application.yml
 server:
   port: 8080                          # 服务端口
 
@@ -153,3 +166,8 @@ reminder:
 - **软删除**：所有删除操作均为软删除，数据不会物理清除
 - **周期计算**：周一至周日为一周，通过 Java Time API 计算
 - **无认证**：本工具面向本地单用户使用，未集成登录认证
+
+## 路线图
+
+- [x] Web 端聊天交互与周报生成
+- [ ] 移动端 / 桌面端 App 支持
